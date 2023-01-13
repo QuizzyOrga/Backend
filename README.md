@@ -106,4 +106,6 @@ Prettier : Code formater
 
 ## Support/Doc
 
-[A mettre](https://github.com/QuizzyOrga/Backend)
+[Tableau trello](https://trello.com/b/aKYO4YnX/conduite-de-projet)
+
+[Présentation Canva](https://www.canva.com/design/DAFXjzZ9GQ8/Z6qXd0YSTbP18rab-mma_g/edit?utm_content=DAFXjzZ9GQ8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
