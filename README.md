@@ -106,8 +106,4 @@ Prettier : Code formater
 
 ## Support/Doc
 
-[Ybook - Cahier des Charges](https://moodle.ynov.com/mod/resource/view.php?id=84521)
-
-[ybook-interfaces](https://github.com/julienfdev/ybook-interfaces)
-
-[Support Nest](https://docs.nestjs.com/support).
+[A mettre](https://github.com/QuizzyOrga/Backend)
