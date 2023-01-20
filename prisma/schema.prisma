@@ -12,15 +12,10 @@ datasource db {
 
 // Prisma Models
 model User {
-  id             Int      @id @default(autoincrement())
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
-  firstname      String   @db.VarChar(100)
-  lastname       String   @db.VarChar(100)
-  email          String   @unique
-  avatarS3Key    String?  @db.VarChar(255)
-  coverPicS3Key  String?  @db.VarChar(255)
-  blockedUsers   User[]   @relation("UserBlocks")
-  blockedByUsers User[]   @relation("UserBlocks")
-  config         Json?
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  firstname String   @db.VarChar(100)
+  lastname  String   @db.VarChar(100)
+  email     String   @unique
 }
