@@ -106,8 +106,6 @@ Prettier : Code formater
 
 ## Support/Doc
 
-[Ybook - Cahier des Charges](https://moodle.ynov.com/mod/resource/view.php?id=84521)
+[Tableau trello](https://trello.com/b/aKYO4YnX/conduite-de-projet)
 
-[ybook-interfaces](https://github.com/julienfdev/ybook-interfaces)
-
-[Support Nest](https://docs.nestjs.com/support).
+[Présentation Canva](https://www.canva.com/design/DAFXjzZ9GQ8/Z6qXd0YSTbP18rab-mma_g/edit?utm_content=DAFXjzZ9GQ8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
