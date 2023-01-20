@@ -47,8 +47,10 @@ import { DevMiddleware } from './utils/dev.middleware';
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(LoggerMiddleware).forRoutes('*');
-    if (process.env.NODE_ENV === 'development') {
-      consumer.apply(DevMiddleware).forRoutes('*');
-    }
+
+    // Génère un token dans le body
+    // if (process.env.NODE_ENV === 'development') {
+    //   consumer.apply(DevMiddleware).forRoutes('*');
+    // }
   }
 }

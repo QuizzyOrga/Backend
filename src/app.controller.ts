@@ -9,7 +9,7 @@ export class AppController {
 
   @ApiOperation({ summary: 'Vérifie AuthorizerGuard le token' })
   @ApiBearerAuth()
-  @UseGuards(AuthorizerGuard)
+  // @UseGuards(AuthorizerGuard)
   @Get('testAuth')
   async getTest(
     @Body() data: { userId: number },

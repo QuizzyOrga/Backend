@@ -1,5 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { FriendshipStatus, PrismaClient, User } from '@prisma/client';
+import { PrismaClient, User } from '@prisma/client';
 import { CreateUserDto } from './dto/create-user.dto';
 
 @Injectable()
