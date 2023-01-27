@@ -14,7 +14,6 @@ En résumé, notre outil de création de quiz en ligne permettra aux enseignants
 
 ## Stack
 
-- Nodejs
 - NestJS
 - Prisma
 
@@ -41,6 +40,12 @@ docker-compose up nest-postgres
 ```
 
 - Création de la base de données
+
+```shell
+npx prisma generate
+```
+
+- Créer une migration
 
 ```shell
 prisma migrate dev
@@ -103,9 +108,4 @@ En utilisant ce design pattern,on peut séparer clairement les différentes couc
 
 Eslint : Linter
 Prettier : Code formater
-
-## Support/Doc
-
-[Tableau trello](https://trello.com/b/aKYO4YnX/conduite-de-projet)
-
-[Présentation Canva](https://www.canva.com/design/DAFXjzZ9GQ8/Z6qXd0YSTbP18rab-mma_g/edit?utm_content=DAFXjzZ9GQ8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+Prisma : Ajoute la coloration syntaxique, le formatage, l'autocomplétion, le saut à la définition et la vérification des fichiers Prisma

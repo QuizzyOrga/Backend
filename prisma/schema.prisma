@@ -15,7 +15,61 @@ model User {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  firstname String   @db.VarChar(100)
-  lastname  String   @db.VarChar(100)
+  firstName String   @db.VarChar(100)
+  lastName  String   @db.VarChar(100)
+  role      Role     @default(USER)
   email     String   @unique
+  password  String   @db.VarChar(100)
+  quiz      Quiz[]
+  signal    signal[]
+}
+
+model Quiz {
+  id        Int        @id @default(autoincrement())
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  creatorId Int
+  creator   User       @relation(fields: [creatorId], references: [id])
+  title     String     @db.VarChar(100)
+  isPublic  Boolean    @default(true)
+  isDeleted Boolean    @default(false)
+  questions Question[]
+  signal    signal[]
+}
+
+model Question {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  title     String   @db.VarChar(100)
+  quizId    Int
+  quiz      Quiz     @relation(fields: [quizId], references: [id])
+  answers   Answer[]
+}
+
+model Answer {
+  id         Int      @id @default(autoincrement())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  title      String   @db.VarChar(100)
+  isCorrect  Boolean  @default(false)
+  questionId Int
+  question   Question @relation(fields: [questionId], references: [id])
+}
+
+model signal {
+  id           Int      @id @default(autoincrement())
+  createdAt    DateTime @default(now())
+  creatorId    Int
+  creator      User     @relation(fields: [creatorId], references: [id])
+  quiz         Quiz     @relation(fields: [quizId], references: [id])
+  quizId       Int
+  isForCreator Boolean  @default(false)
+  isForAdmin   Boolean  @default(false)
+}
+
+enum Role {
+  USER
+  ADMIN
+  CREATOR
 }
