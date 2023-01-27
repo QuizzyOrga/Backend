@@ -21,7 +21,7 @@ model User {
   email     String   @unique
   password  String   @db.VarChar(100)
   quiz      Quiz[]
-  signal    signal[]
+  signal    Signal[]
 }
 
 model Quiz {
@@ -34,7 +34,7 @@ model Quiz {
   isPublic  Boolean    @default(true)
   isDeleted Boolean    @default(false)
   questions Question[]
-  signal    signal[]
+  signal    Signal[]
 }
 
 model Question {
@@ -57,7 +57,7 @@ model Answer {
   question   Question @relation(fields: [questionId], references: [id])
 }
 
-model signal {
+model Signal {
   id           Int      @id @default(autoincrement())
   createdAt    DateTime @default(now())
   creatorId    Int
