@@ -9,6 +9,7 @@ import { UsersModule } from './users/users.module';
 import { LoggerMiddleware } from './utils/logger.middleware';
 import { AuthorizerModule } from './utils/authorizer/authorizer.module';
 import { DevMiddleware } from './utils/dev.middleware';
+import { QuizModule } from './quiz/quiz.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { DevMiddleware } from './utils/dev.middleware';
     }),
     AuthorizerModule,
     UsersModule,
+    QuizModule,
   ],
   controllers: [AppController],
   providers: [

@@ -20,23 +20,16 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UsersService } from './users.service';
 
 @ApiTags('users')
-@ApiBearerAuth()
+// @ApiBearerAuth()
 // @UseGuards(AuthorizerGuard)
 @Controller('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @ApiOperation({
-    summary: "Profil d'un utilisateur",
-    description: "Soit par le paramètre 'id' soit par le body 'userId'",
+    summary: 'Un utilisateur',
   })
-  @ApiParam({
-    name: 'id',
-    description: "L'id de l'utilisateur",
-    required: false,
-    type: Number,
-  })
-  @Get(':id?/user')
+  @Get(':id')
   async findOne(@Body() data: { userId: number }, @Param('id') id?: number) {
     const userId: number = id || data.userId;
     return this.usersService.findOne(userId);
@@ -48,11 +41,11 @@ export class UsersController {
     return this.usersService.findAll();
   }
 
-  @ApiOperation({ summary: 'Mettre à jour un utilisateur' })
-  @Patch()
-  update(@Body() data: { userId: number }, @Body() updateUser: User) {
-    return this.usersService.update(+data.userId, updateUser);
-  }
+  // @ApiOperation({ summary: 'Mettre à jour un utilisateur' })
+  // @Patch()
+  // update(@Body() data: { userId: number }, @Body() updateUser: User) {
+  //   return this.usersService.update(+data.userId, updateUser);
+  // }
 
   @ApiOperation({ summary: 'Créer un utilisateur' })
   @Post()

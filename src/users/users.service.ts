@@ -20,7 +20,16 @@ export class UsersService {
   }
 
   async findAll(): Promise<User[]> {
-    const users: User[] = await this.prisma.user.findMany({ take: 100 });
+    const users: User[] = await this.prisma.user.findMany({
+      include: {
+        _count: {
+          select: {
+            quiz: true,
+          },
+        },
+      },
+      take: 100,
+    });
     return users;
   }
 
@@ -30,17 +39,23 @@ export class UsersService {
       where: {
         id: id,
       },
-      // Include mutual friends count, if fromFriendship is status accepted
+      include: {
+        _count: {
+          select: {
+            quiz: true,
+          },
+        },
+      },
     });
 
     return user;
   }
 
-  update(id: number, updateUser: User) {
-    return `This action updates a #${id} user`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+  async remove(id: number) {
+    return await this.prisma.user.delete({
+      where: {
+        id: id,
+      },
+    });
   }
 }
