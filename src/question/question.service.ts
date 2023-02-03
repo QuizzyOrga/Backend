@@ -1,5 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { PrismaClient } from '@prisma/client';
+import { Answer, PrismaClient, Question } from '@prisma/client';
 import { CreateQuestionDto } from './dto/create-question.dto';
 import { UpdateQuestionDto } from './dto/update-question.dto';
 
@@ -24,8 +24,15 @@ export class QuestionService {
     });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} question`;
+  async findOne(id: number) {
+    return await this.prisma.question.findUnique({
+      where: {
+        id: id,
+      },
+      include: {
+        answers: true,
+      },
+    });
   }
 
   update(id: number, updateQuestionDto: UpdateQuestionDto) {
@@ -35,4 +42,7 @@ export class QuestionService {
   remove(id: number) {
     return `This action removes a #${id} question`;
   }
+}
+function exclude(user: any, arg1: string[]) {
+  throw new Error('Function not implemented.');
 }
