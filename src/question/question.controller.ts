@@ -11,7 +11,7 @@ import { QuestionService } from './question.service';
 import { CreateQuestionDto } from './dto/create-question.dto';
 import { UpdateQuestionDto } from './dto/update-question.dto';
 import { ApiTags } from '@nestjs/swagger';
-import { quizId } from 'src/utils/fixtures/question.seeds';
+// import { quizId } from 'src/utils/fixtures/question.seeds';
 
 @ApiTags('quiz/:id/questions')
 @Controller('quiz/:id/questions')

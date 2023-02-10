@@ -39,7 +39,11 @@ export class QuizService {
       },
       include: {
         creator: true,
-        questions: true,
+        questions: {
+          include: {
+            options: true,
+          },
+        },
         _count: {
           select: {
             questions: true,

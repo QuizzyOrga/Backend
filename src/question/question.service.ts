@@ -1,5 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { Answer, PrismaClient, Question } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
 import { CreateQuestionDto } from './dto/create-question.dto';
 import { UpdateQuestionDto } from './dto/update-question.dto';
 
@@ -28,9 +28,6 @@ export class QuestionService {
     return await this.prisma.question.findUnique({
       where: {
         id: id,
-      },
-      include: {
-        answers: true,
       },
     });
   }
