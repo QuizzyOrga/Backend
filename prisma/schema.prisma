@@ -25,16 +25,18 @@ model User {
 }
 
 model Quiz {
-  id        Int        @id @default(autoincrement())
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
-  creatorId Int
-  creator   User       @relation(fields: [creatorId], references: [id])
-  title     String     @db.VarChar(100)
-  isPublic  Boolean    @default(true)
-  isDeleted Boolean    @default(false)
-  questions Question[]
-  signal    Signal[]
+  id          Int        @id @default(autoincrement())
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  description String?    @db.VarChar(100)
+  creatorId   Int
+  creator     User       @relation(fields: [creatorId], references: [id])
+  title       String     @db.VarChar(100)
+  isPublic    Boolean    @default(true)
+  isDeleted   Boolean    @default(false)
+  questions   Question[]
+  signal      Signal[]
+  urlImg      String?    @db.VarChar(100)
 }
 
 model Question {
