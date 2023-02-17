@@ -44,7 +44,7 @@ model Question {
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
   questionText String   @db.VarChar(100)
-  explanation  String   @db.VarChar(100)
+  explanation  String   @db.VarChar(1000)
   quizId       Int
   quiz         Quiz     @relation(fields: [quizId], references: [id])
   options      Option[]
