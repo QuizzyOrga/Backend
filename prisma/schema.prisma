@@ -32,7 +32,7 @@ model Quiz {
   creatorId   Int
   creator     User       @relation(fields: [creatorId], references: [id])
   title       String     @db.VarChar(100)
-  isPublic    Boolean    @default(true)
+  codePrivate String?    @db.VarChar(100)
   isDeleted   Boolean    @default(false)
   questions   Question[]
   signal      Signal[]
