@@ -11,6 +11,7 @@ import { AuthorizerModule } from './utils/authorizer/authorizer.module';
 import { DevMiddleware } from './utils/dev.middleware';
 import { QuizModule } from './quiz/quiz.module';
 import { QuestionModule } from './question/question.module';
+import { RechercheModule } from './recherche/recherche.module';
 
 @Module({
   imports: [
@@ -35,6 +36,7 @@ import { QuestionModule } from './question/question.module';
     UsersModule,
     QuizModule,
     QuestionModule,
+    RechercheModule,
   ],
   controllers: [AppController],
   providers: [
