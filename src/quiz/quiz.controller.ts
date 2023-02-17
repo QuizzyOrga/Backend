@@ -25,7 +25,7 @@ export class QuizController {
   @ApiOperation({ summary: 'Un quiz' })
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.quizService.findOne(+id);
+    return this.quizService.findOne(id);
   }
 
   @ApiOperation({ summary: 'Tout les quiz' })

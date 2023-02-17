@@ -32,25 +32,47 @@ export class QuizService {
     });
   }
 
-  async findOne(id: number) {
-    return await this.prisma.quiz.findUnique({
-      where: {
-        id: id,
-      },
-      include: {
-        creator: true,
-        questions: {
-          include: {
-            options: true,
+  async findOne(id: any) {
+    if (this.isNumeric(id)) {
+      const idQuiz = Number(id);
+      return await this.prisma.quiz.findFirstOrThrow({
+        where: {
+          id: idQuiz,
+        },
+        include: {
+          creator: true,
+          questions: {
+            include: {
+              options: true,
+            },
+          },
+          _count: {
+            select: {
+              questions: true,
+            },
           },
         },
-        _count: {
-          select: {
-            questions: true,
+      });
+    } else {
+      return await this.prisma.quiz.findFirstOrThrow({
+        where: {
+          codePrivate: id,
+        },
+        include: {
+          creator: true,
+          questions: {
+            include: {
+              options: true,
+            },
+          },
+          _count: {
+            select: {
+              questions: true,
+            },
           },
         },
-      },
-    });
+      });
+    }
   }
 
   async remove(id: number) {
@@ -60,4 +82,8 @@ export class QuizService {
       },
     });
   }
+
+  isNumeric = (val: string): boolean => {
+    return !isNaN(Number(val));
+  };
 }
