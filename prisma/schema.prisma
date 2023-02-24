@@ -36,7 +36,7 @@ model Quiz {
   isDeleted   Boolean    @default(false)
   questions   Question[]
   signal      Signal[]
-  urlImg      String?    @db.VarChar(100)
+  urlImg      String?    @db.VarChar(200)
 }
 
 model Question {

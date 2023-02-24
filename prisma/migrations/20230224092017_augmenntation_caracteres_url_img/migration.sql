@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Quiz" ALTER COLUMN "urlImg" SET DATA TYPE VARCHAR(200);
