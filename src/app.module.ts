@@ -17,7 +17,7 @@ import { RechercheModule } from './recherche/recherche.module';
   imports: [
     ThrottlerModule.forRoot({
       ttl: 60,
-      limit: 10,
+      limit: 30,
     }),
     ConfigModule.forRoot({ isGlobal: true }),
     PrismaModule.forRoot({
