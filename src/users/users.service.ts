@@ -51,6 +51,24 @@ export class UsersService {
     return user;
   }
 
+  async login(email: string, password: string): Promise<User> {
+    const user: User = await this.prisma.user.findFirstOrThrow({
+      where: {
+        email: email,
+        password: password,
+      },
+      include: {
+        _count: {
+          select: {
+            quiz: true,
+          },
+        },
+      },
+    });
+
+    return user;
+  }
+
   async remove(id: number) {
     return await this.prisma.user.delete({
       where: {

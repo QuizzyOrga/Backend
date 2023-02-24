@@ -26,6 +26,12 @@ import { UsersService } from './users.service';
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
+  @ApiOperation({ summary: 'Login user' })
+  @Post('login')
+  login(@Body() data: { email: string; password: string }) {
+    return this.usersService.login(data.email, data.password);
+  }
+
   @ApiOperation({
     summary: 'Un utilisateur',
   })
