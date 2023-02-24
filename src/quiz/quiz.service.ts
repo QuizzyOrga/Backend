@@ -20,6 +20,9 @@ export class QuizService {
 
   async findAll() {
     return await this.prisma.quiz.findMany({
+      where: {
+        codePrivate: null,
+      },
       include: {
         creator: true,
         _count: {
